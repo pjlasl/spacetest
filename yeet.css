@@ -134,130 +134,48 @@ h1 {
 		}
 	}
 
-/* .tabe {
-	color: #82fffc;
-	background: #7447ff;
-	font-weight: bold;
-	border: 2px solid #82fffc;
-	border-radius: 4px;
-	transition-duration: 0.4s;
-	cursor: pointer;
-}
-
-.tabe:hover {
-	color: #6837ff;
-	background: #82fffc;
-	border: 2px solid #6837ff;
-}
-
-.yeet {
-	color: #6837ff;
-	background: #82fffc;
-	font-weight: bold;
-	border: 2px solid #6837ff;
-	border-radius: 4px;
-	transition-duration: 0.4s;
-	cursor: pointer;
-}
-
-.yeet:hover {
-
-	border: 2px solid #00ffff;
-	color: #82fffc;
-	background: #6837ff
-}
-
-.basic {
-	color: #00FF7E;
-	background: #000000;
-	font-weight: bold;
-	border: 2px solid #00FF7E;
-	border-radius: 4px;
-	transition-duration: 0.4s;
-	cursor: pointer;
-}
-
-.basic:hover {
-	color: #000000;
-	background: #00FF7E;
-	border: 2px solid #00FF7E;
-}
-
-.explorer {
-	color: #FF7B00;
-	background: #000000;
-	font-weight: bold;
-	border: 2px solid #FF7B00;
-	border-radius: 4px;
-	transition-duration: 0.4s;
-	cursor: pointer;
-}
-
-.explorer:hover {
-	color: #000000;
-	background: #FF7B00;
-	border: 2px solid #FF7B00;
-}
-
-.mercury {
-	color: #e5335f;
-	background: #000000;
-	font-weight: bold;
-	border: 2px solid #e5335f;
-	border-radius: 4px;
-	transition-duration: 0.4s;
-	cursor: pointer;
-}
-
-.mercury:hover {
-	color: #000000;
-	background: #e5335f;
-	border: 2px solid #e5335f;
-}
-
-.gemini {
-	color: #8191d4;
-	background: #000000;
-	font-weight: bold;
-	border: 2px solid #8191d4;
-	border-radius: 4px;
-	transition-duration: 0.4s;
-	cursor: pointer;
-}
-
-.gemini:hover {
-	color: #000000;
-	background: #8191d4;
-	border: 2px solid #8191d4;
-}
-
-.apollo {
-	color: #cbb0d4;
-	background: #000000;
-	font-weight: bold;
-	border: 2px solid #cbb0d4;
-	border-radius: 4px;
-	transition-duration: 0.4s;
-	cursor: pointer;
-}
-
-.apollo:hover {
-	color: #000000;
-	background: #cbb0d4;
-	border: 2px solid #cbb0d4;
-}
-
-.prestige1 {
-	color: #FFFFE5;
-	background: #040041;
-	border: 2px solid #04004A;
-	font-weight: bold;
-	border-radius: 4px;
-	transition-duration: 0.2s;
-	cursor: pointer;
-}
-
-.prestige1:hover {
-	color: #FEFDFD;
-	background: #3500DA;
-} */
+/* The snackbar - position it at the bottom and in the middle of the screen */
+#snackbar {
+	visibility: hidden; /* Hidden by default. Visible on click */
+	min-width: 250px; /* Set a default minimum width */
+	margin-left: -125px; /* Divide value of min-width by 2 */
+	background-color: #4CAF50; /* Black background color */
+	color: #fff; /* White text color */
+	text-align: center; /* Centered text */
+	border-radius: 2px; /* Rounded borders */
+	padding: 16px; /* Padding */
+	position: fixed; /* Sit on top of the screen */
+	z-index: 1; /* Add a z-index if needed */
+	left: 50%; /* Center the snackbar */
+	bottom: 30px; /* 30px from the bottom */
+  }
+  
+  /* Show the snackbar when clicking on a button (class added with JavaScript) */
+  #snackbar.show {
+	visibility: visible; /* Show the snackbar */
+	/* Add animation: Take 0.5 seconds to fade in and out the snackbar. 
+	However, delay the fade out process for 2.5 seconds */
+	-webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+	animation: fadein 0.5s, fadeout 0.5s 2.5s;
+  }
+  
+  /* Animations to fade the snackbar in and out */
+  @-webkit-keyframes fadein {
+	from {bottom: 0; opacity: 0;} 
+	to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+	from {bottom: 0; opacity: 0;}
+	to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+	from {bottom: 30px; opacity: 1;} 
+	to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+	from {bottom: 30px; opacity: 1;}
+	to {bottom: 0; opacity: 0;}
+  }

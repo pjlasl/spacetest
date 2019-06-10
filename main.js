@@ -393,6 +393,18 @@ function save() {
 	localStorage.beta = btoa(JSON.stringify(rocket1.properties));
 	localStorage.explorer = btoa(JSON.stringify(rocket2.properties));
 	localStorage.mercury = btoa(JSON.stringify(rocket3.properties));
+
+	// Get the snackbar DIV
+	var x = document.getElementById("snackbar");
+
+	x.innerHTML = "Game Saved";
+
+	// Add the "show" class to DIV
+	x.className = "show";
+
+	// After 3 seconds, remove the show class from DIV
+	setTimeout(function(){ x.className = x.className.replace("show", ""); }, 2000);
+
 }
 
 function load() {
