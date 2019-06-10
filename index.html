@@ -22,37 +22,40 @@
 
 <body>
 	<div class="grid-x">		
-		<div class="cell">
-			<div class="top-bar">
+		<div class="cell"  data-sticky-container>
+			<div class="top-bar" data-sticky data-options="marginTop:0;" style="width:100%">
 				<div class="top-bar-left">
 					<ul class="menu">
-						<li>
+						<li class="menu-text">
+							Space Test
+						</li>
+						<li id="basicrocketContent">
 							<a onclick="tab('basicrocket')" href="#">Basic Rocket</a>
 						</li>
-						<li id="explorerContent" style="display: none;" class="explorer">
+						<li id="explorerContent" style="display: none;">
 							<a onclick="tab('explorer')" href="#">Explorer</a>
 						</li>
 						<li id="mercuryContent" style="display: none;">
 							<a onclick="tab('mercury')" href="#">Mercury</a>
 						</li>
-						<li>
-							<a onclick="tab('rock3')" href="#">Gemini</a>
+						<li id="geminiContent" style="display: none;">
+							<a onclick="tab('gemini')" href="#">Gemini</a>
 						</li>
-						<li>
-							<a onclick="tab('rock4')" href="#">Apollo</a>
+						<li id="apolloContent" style="display: none;">
+							<a onclick="tab('apollo')" href="#">Apollo</a>
 						</li>
-						<li>
-							<a onclick="tab('sources')" href="#">Blueprints</a>
+						<li id="blueprintsContent" style="display: inline;">
+							<a onclick="tab('blueprints')" href="#">Blueprints</a>
 						</li>
-						<li>
-							<a onclick="tab('options')" href="#">Workshop</a>
+						<li id="workshopContent"  style="display: inline;">
+							<a onclick="tab('workshop')" href="#">Workshop</a>
 						</li>
-						<li id="brainPrestige"style="display: none;">
-							<a onclick="tab('prestige')" href="#">Brainstorm</a>
+						<li id="brainstormContent"style="display: none;">
+							<a onclick="tab('brainstorm')" href="#">Brainstorm</a>
 						</li>				
-						<li>
+						<!-- <li>
 							<a onclick="tab('achievements')" href="#">Achievements</a>
-						</li>
+						</li> -->
 					</ul>
 				</div>
 				<div class="top-bar-right">
@@ -171,7 +174,7 @@
 					</div>
 				</div>				
 			</div>
-			<div id="sources" class="tab">
+			<div id="blueprints" class="tab">
 				Secondary:
 				Morring, Jr., Frank. "Space race." World Book Advanced, World Book, 2019,
 				www.worldbookonline.com/advanced/article?id=ar755298. Accessed 16 Jan. 2019.<br>
@@ -188,7 +191,7 @@
 				https://history.nasa.gov/SP-4029/Apollo_01c_Timeline.htm<br>
 				an intervew with someone, but i won't say here in order to contain my anonymity
 			</div>
-			<div id="options" class="tab">
+			<div id="workshop" class="tab">
 				<button class="hollow button alert" onclick="fullReset()">Reset the game</button>
 				<button class="hollow button secondary" onclick="save()">Save</button>
 				<button class="hollow button secondary" onclick="outof()">Export</button>
@@ -196,7 +199,7 @@
 				<button class="hollow button secondary" onclick="ruinTheFun()">Get to where new content starts.</button>
 				<button class="hollow button secondary" onclick="upgradeGame()">Upgrade Game</button>
 			</div>
-			<div id="prestige" class="tab">
+			<div id="brainstorm" class="tab">
 				<h3>Brainstorm</h3>
 				<p>
 					Current Creativity: <span id="creativity">0</span> Gain on Next Prestige: <span id="gainOnBrainstorm">0</span>

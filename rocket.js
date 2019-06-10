@@ -147,7 +147,7 @@ let rocketTypes = [
 		}
 	},
 	mercury = {
-		moneyPerFuel: 5e16,
+		moneyPerFuel: 5e13,
 		Limit: 1,
 		Launched: 0,
 		affectByCreat: false,
@@ -952,7 +952,6 @@ class Mercury extends Rocket {
 
 		let prestige = JSON.parse(JSON.stringify(rocketTypes[2]));
 
-		
 		this.properties.fuel = prestige.fuel;
 		this.properties.up1 = prestige.up1;
 		this.properties.up2 = prestige.up2;
@@ -961,11 +960,11 @@ class Mercury extends Rocket {
 		this.properties.successChance = prestige.successChance;
 
 		if (this.properties.affectByCreat === true && game.creativity.total > 2048 && game.creativity.total < 1048576) {
-			this.properties.moneyPerFuel = 5e16 * ((Math.log10(game.creativity.total - 2048) + 1) * 1.5 * (this.properties.techs.mpf + 1));
+			this.properties.moneyPerFuel = 5e13 * ((Math.log10(game.creativity.total - 2048) + 1) * 1.5 * (this.properties.techs.mpf + 1));
 		} else if (game.creativity.total > 1048576) {
-			this.properties.moneyPerFuel = 5e16 * ((Math.log10(1048576 - 2048) + 1) * 1.5 * (this.properties.techs.mpf + 1));
+			this.properties.moneyPerFuel = 5e13 * ((Math.log10(1048576 - 2048) + 1) * 1.5 * (this.properties.techs.mpf + 1));
 		} else {
-			this.properties.moneyPerFuel = (5e16 * (game.rock3.techs.mpf + 1)) * Math.log10(game.creat);
+			this.properties.moneyPerFuel = (5e13 * (game.rock3.techs.mpf + 1)) * Math.log10(game.creat);
 		}
 		
 		if (this.properties.techs.respec === true) {

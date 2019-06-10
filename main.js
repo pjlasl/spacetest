@@ -103,16 +103,16 @@ function buyRocketUpgrade(rocket, upgrade) {
 		case 'mercury':
 			switch(upgrade) {
 				case 1:
-					rocket2.buyUpgrade1();
+					rocket3.buyUpgrade1();
 					break;
 				case 2:
-					rocket2.buyUpgrade2();
+					rocket3.buyUpgrade2();
 					break;
 				case 3:
-					rocket2.buyUpgrade3();
+					rocket3.buyUpgrade3();
 					break;
 				case 4:
-					rocket2.buyUpgrade4();
+					rocket3.buyUpgrade4();
 					break;				
 				default:
 					console.log('parameter "upgrade" is missing');
@@ -121,16 +121,16 @@ function buyRocketUpgrade(rocket, upgrade) {
 		case 'gemini':
 			switch(upgrade) {
 				case 1:
-					rocket2.buyUpgrade1();
+					rocket3.buyUpgrade1();
 					break;
 				case 2:
-					rocket2.buyUpgrade2();
+					rocket3.buyUpgrade2();
 					break;
 				case 3:
-					rocket2.buyUpgrade3();
+					rocket3.buyUpgrade3();
 					break;
 				case 4:
-					rocket2.buyUpgrade4();
+					rocket3.buyUpgrade4();
 					break;				
 				default:
 					console.log('parameter "upgrade" is missing');
@@ -139,16 +139,16 @@ function buyRocketUpgrade(rocket, upgrade) {
 		case 'apollo':
 			switch(upgrade) {
 				case 1:
-					rocket2.buyUpgrade1();
+					rocket4.buyUpgrade1();
 					break;
 				case 2:
-					rocket2.buyUpgrade2();
+					rocket4.buyUpgrade2();
 					break;
 				case 3:
-					rocket2.buyUpgrade3();
+					rocket4.buyUpgrade3();
 					break;
 				case 4:
-					rocket2.buyUpgrade4();
+					rocket4.buyUpgrade4();
 					break;				
 				default:
 					console.log('parameter "upgrade" is missing');
@@ -1077,15 +1077,14 @@ window.setInterval(function () {
 	document.getElementById("maxATP").innerHTML = game.rock3.techs.maxTP;
 	
 	if (game.money > 50000 || game.prestige.enabled === true) {
-		document.getElementById("brainPrestige").style.display = "inline";
+		document.getElementById("brainstormContent").style.display = "inline";
 	} else {
-		document.getElementById("brainPrestige").style.display = "none";
+		document.getElementById("brainstormContent").style.display = "none";
 	}	
 
 	p1Gain();
 }, 100);
 
-load();
 window.setInterval(function () {
 	save();
 }, 60000);
@@ -1152,9 +1151,15 @@ function tab(t) {
 		classList[i].style.display = "none";
 	}
 	document.getElementById(t).style.display = "";
-}
 
-tab("basicrocket");
+	var menuList = document.getElementsByClassName('menu');
+	var items = menuList[0].getElementsByTagName('li');
+	for (var j = 0; j < items.length; j++) {
+		items[j].classList.remove('is-active');
+	}
+
+	document.getElementById(t + 'Content').classList.add('is-active');
+}
 
 function subTab(tabName) {
 	var tabs = document.getElementsByClassName('pSubTab');
@@ -1169,5 +1174,6 @@ function subTab(tabName) {
 	}
 }
 
-
+load();
+tab("basicrocket");
 subTab("basicPUps");
