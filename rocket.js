@@ -156,7 +156,7 @@ let rocketTypes = [
 		unlocked: false,
 		fuel: {
 			max: 150,
-			cost: 1e12,
+			cost: 1e9,
 			amount: 0,
 			scaleDown: 1
 		},
@@ -247,6 +247,10 @@ class BasicRocket extends Rocket {
 	}
 	reset() {
 		this.properties = JSON.parse(JSON.stringify(rocketTypes[0]));
+	}
+
+	resetTech() {
+		this.properties.techs.respec = true;
 	}
 
 	switchAuto(isEnabled) {
@@ -534,22 +538,35 @@ class Explorer extends Rocket {
 
 		let prestige = JSON.parse(JSON.stringify(rocketTypes[1]));
 
-		this.properties.rockLaunched = 0;
+		if (game.prestige.upgrades[14].bought) {
 
-		this.properties.fuel = prestige.fuel;
-		this.properties.up1 = prestige.up1;
-		this.properties.up2 = prestige.up2;
-		this.properties.up3 = prestige.up3;
-		this.properties.up4 = prestige.up4;
-		this.properties.successChance = prestige.successChance;
-
-		if (this.properties.affectByCreat === true && game.creativity.total > 2048 && game.creativity.total < 1048576) {
-			this.properties.moneyPerFuel = 1500000 * ((Math.log2(game.creativity.total - 2048) + 1) * 1.5 * (this.properties.techs.mpf + 1));
-		} else if (game.creativity.total > 1048576) {
-			this.properties.moneyPerFuel = 1500000 * ((Math.log2(1048576 - 2048) + 1) * 1.5 * (this.properties.techs.mpf + 1));
+			rocket2.properties.fuel.amount = 17050;
+			rocket2.properties.fuel.cost = 50000;
+			rocket2.properties.fuel.max = 17050;
+			rocket2.properties.fuel.scaleDown = 3.38;
+			rocket2.properties.up1.buys = 50;
+			rocket2.properties.up2.buys = 50;
+			rocket2.properties.up3.buys = 50; 
+			rocket2.properties.up4.buys = 50; 
+			rocket2.properties.moneyPerFuel = prestige.moneyPerFuel * 1034;
 		} else {
-			this.properties.moneyPerFuel = 1500000;
+			this.properties.fuel = prestige.fuel;
+			this.properties.up1 = prestige.up1;
+			this.properties.up2 = prestige.up2;
+			this.properties.up3 = prestige.up3;
+			this.properties.up4 = prestige.up4;
+			this.properties.successChance = prestige.successChance;
+	
+			if (this.properties.affectByCreat === true && game.creativity.total > 2048 && game.creativity.total < 1048576) {
+				this.properties.moneyPerFuel = 1500000 * ((Math.log2(game.creativity.total - 2048) + 1) * 1.5 * (this.properties.techs.mpf + 1));
+			} else if (game.creativity.total > 1048576) {
+				this.properties.moneyPerFuel = 1500000 * ((Math.log2(1048576 - 2048) + 1) * 1.5 * (this.properties.techs.mpf + 1));
+			} else {
+				this.properties.moneyPerFuel = 1500000;
+			}
 		}
+
+		
 
 		if (this.properties.techs.respec === true) {
 			this.properties.techs.cs1 = 0;
@@ -565,6 +582,10 @@ class Explorer extends Rocket {
 	}
 	reset() {
 		this.properties = JSON.parse(JSON.stringify(rocketTypes[1]));
+	}
+
+	resetTech() {
+		this.properties.techs.respec = true;
 	}
 
 	switchAuto(isEnabled) {
@@ -931,6 +952,7 @@ class Mercury extends Rocket {
 
 		let prestige = JSON.parse(JSON.stringify(rocketTypes[2]));
 
+		
 		this.properties.fuel = prestige.fuel;
 		this.properties.up1 = prestige.up1;
 		this.properties.up2 = prestige.up2;
@@ -939,13 +961,13 @@ class Mercury extends Rocket {
 		this.properties.successChance = prestige.successChance;
 
 		if (this.properties.affectByCreat === true && game.creativity.total > 2048 && game.creativity.total < 1048576) {
-			this.properties.moneyPerFuel = 5e16 * ((Math.log2(game.creativity.total - 2048) + 1) * 1.5 * (this.properties.techs.mpf + 1));
+			this.properties.moneyPerFuel = 5e16 * ((Math.log10(game.creativity.total - 2048) + 1) * 1.5 * (this.properties.techs.mpf + 1));
 		} else if (game.creativity.total > 1048576) {
-			this.properties.moneyPerFuel = 5e16 * ((Math.log2(1048576 - 2048) + 1) * 1.5 * (this.properties.techs.mpf + 1));
+			this.properties.moneyPerFuel = 5e16 * ((Math.log10(1048576 - 2048) + 1) * 1.5 * (this.properties.techs.mpf + 1));
 		} else {
-			this.properties.moneyPerFuel = 5e16;
+			this.properties.moneyPerFuel = (5e16 * (game.rock3.techs.mpf + 1)) * Math.log10(game.creat);
 		}
-
+		
 		if (this.properties.techs.respec === true) {
 			this.properties.techs.cs1 = 0;
 			this.properties.techs.cs2 = 0;
@@ -958,8 +980,26 @@ class Mercury extends Rocket {
 		}
 
 	}
+
 	reset() {
 		this.properties = JSON.parse(JSON.stringify(rocketTypes[2]));
+	}
+
+	resetTech() {
+		this.properties.techs.respec = true;
+	}
+
+	switchAuto(isEnabled) {
+		this.properties.auto = isEnabled;
+
+		if (this.properties.auto) {
+			document.getElementById('mercuryBtnLaunch').style.display = 'none';
+			document.getElementById('mercuryBtnFuel').style.display = 'none';
+			this.launch();
+		} else {
+			document.getElementById('mercuryBtnLaunch').style.display = 'inline';
+			document.getElementById('mercuryBtnFuel').style.display = 'inline';
+		}
 	}
 
 	launch() {
@@ -1101,6 +1141,62 @@ class Mercury extends Rocket {
 		}
 	}
 
+	buyTech1() {
+		if (this.properties.techs.cs1 < 3 && this.properties.techs.currentTP > 0) {
+			this.properties.techs.currentTP -= 1;
+			this.properties.techs.cs1 += 1;
+		}
+	}
+
+	buyTech2() {
+		if (this.properties.techs.cs2 < 3 && this.properties.techs.currentTP > 0) {
+			this.properties.techs.currentTP -= 1;
+			this.properties.techs.cs2 += 1;
+		}
+	}
+
+	buyTech3() {
+		if (this.properties.techs.cs3 < 3 && this.properties.techs.currentTP > 0) {
+			this.properties.techs.currentTP -= 1;
+			this.properties.techs.cs3 += 1;
+		}
+	}
+
+	buyTech4() {
+		if (this.properties.techs.cs4 < 3 && this.properties.techs.currentTP > 0) {
+			this.properties.techs.currentTP -= 1;
+			this.properties.techs.cs4 += 1;
+		}
+	}
+
+	buyTech5() {
+		if (this.properties.techs.ef3 < 3 && this.properties.techs.currentTP > 0) {
+			this.properties.techs.currentTP -= 1;
+			this.properties.techs.ef3 += 1;
+		}
+	}
+
+	buyTech6() {
+		if (this.properties.techs.ef4 < 3 && this.properties.techs.currentTP > 0) {
+			this.properties.techs.currentTP -= 1;
+			this.properties.techs.ef4 += 1;
+		}
+	}
+
+	buyTech7() {
+		if (this.properties.techs.mpf < 3 && this.properties.techs.currentTP > 0) {
+			this.properties.techs.currentTP -= 1;
+			this.properties.techs.mpf += 1;
+		}
+	}
+
+	buyTech8() {
+		if (this.properties.techs.cmx < 3 && this.properties.techs.currentTP > 0) {
+			this.properties.techs.currentTP -= 1;
+			this.properties.techs.cmx += 1;
+		}
+	}
+
 	updateUI() {
 		var uiUpdate = setInterval(function() {		
 			
@@ -1116,28 +1212,18 @@ class Mercury extends Rocket {
 			 	document.getElementById("mercuryContent2").style.display = "none";
 			 }
 
-			// if (this.properties.techs.techStart === true) {
-			// 	document.getElementById("extechnologies").style.display = "";
-			// 	document.getElementById("explorerTechs2").style.display = "";
-			// } else {
-			// 	document.getElementById("extechnologies").style.display = "none";
-			// 	document.getElementById("explorerTechs2").style.display = "none";
-			// }
-
-			// if (game.prestige.upgrades[10].bought) {
-			// 	document.getElementById('explorerDisableAuto').style.display = 'inline';
-			// 	if (this.properties.auto) {
-			// 		document.getElementById('explorerDisableAuto').classList.add('pure-button-active');		
-			// 		document.getElementById('explorerBtnLaunch').style.display = 'none';
-			// 		document.getElementById('explorerBtnFuel').style.display = 'none';
-			// 	} else {
-			// 		document.getElementById('explorerDisableAuto').classList.remove('pure-button-active');		
-			// 		document.getElementById('explorerBtnLaunch').style.display = 'inline';
-			// 		document.getElementById('explorerBtnFuel').style.display = 'inline';
-			// 	}
-			// } else {
-			// 	document.getElementById('explorerDisableAuto').style.display = 'none';
-			// }			
+			if (game.prestige.upgrades[16].bought) {
+				document.getElementById('mercuryDisableAuto').style.display = 'inline';
+				if (this.properties.auto) {
+					document.getElementById('mercuryBtnLaunch').style.display = 'none';
+					document.getElementById('mercuryBtnFuel').style.display = 'none';
+				} else {
+					document.getElementById('mercuryBtnLaunch').style.display = 'inline';
+					document.getElementById('mercuryBtnFuel').style.display = 'inline';
+				}
+			} else {
+				document.getElementById('mercuryDisableAuto').style.display = 'none';
+			}			
 
 			document.getElementById("mercuryFuel").innerHTML = this.properties.fuel.amount;
 			document.getElementById("mercuryFuelCost").innerHTML = format(this.properties.fuel.cost);

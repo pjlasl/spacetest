@@ -1,90 +1,342 @@
 
 var lore = ["You've heard of the people in the United States and the Soviet Union trying to make spaceships. You kind of want to make one yourself.", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", ""];
 
-function basicSwitchAuto() {
-	rocket1.switchAuto(!rocket1.properties.auto);	
+function switchAutoRocket(rocket) {
+	switch(rocket) {
+		case 'basicRocket':
+			rocket1.switchAuto(!rocket1.properties.auto);
+			break;
+		case 'explorer':
+			rocket2.switchAuto(!rocket2.properties.auto);
+			break;
+		case 'mercury':
+			rocket3.switchAuto(!rocket3.properties.auto);
+			break;
+		case 'gemini':			
+			break;
+		case 'apollo':
+			break;
+		default:
+			console.log('missing "rocket" parameter');
+	}	
+		
 }
 
-function rockLaunch1() {
-	rocket1.launch();	
+function launchRocket(rocket) {
+	switch(rocket) {
+		case 'basicRocket':
+			rocket1.launch();
+			break;
+		case 'explorer':
+			rocket2.launch();
+			break;
+		case 'mercury':
+			rocket3.launch();
+			break;
+		case 'gemini':			
+			break;
+		case 'apollo':
+			break;
+		default:
+			console.log('missing "rocket" parameter');
+	}	
 }
 
-function buyFuel() {
-	rocket1.buyFuel();
+function buyRocketFuel(rocket) {
+	switch(rocket) {
+		case 'basicRocket':
+			rocket1.buyFuel();
+			break;
+		case 'explorer':
+			rocket2.buyFuel();
+			break;
+		case 'mercury':
+			rocket3.buyFuel();
+			break;
+		case 'gemini':			
+			break;
+		case 'apollo':
+			break;
+		default:
+			console.log('missing "rocket" parameter');
+	}	
 }
 
-function upgrade1() {
-	rocket1.buyUpgrade1();
+function buyRocketUpgrade(rocket, upgrade) {
+	switch(rocket) {
+		case 'basicRocket':
+			switch(upgrade) {
+				case 1:
+					rocket1.buyUpgrade1();
+					break;
+				case 2:
+					rocket1.buyUpgrade2();
+					break;
+				case 3:
+					rocket1.buyUpgrade3();
+					break;
+				case 4:
+					console.log('Basic Rocket does not have 4 upgrades');
+					break;				
+				default:
+					console.log('parameter "upgrade" is missing');
+			}
+			break;
+		case 'explorer':
+			switch(upgrade) {
+				case 1:
+					rocket2.buyUpgrade1();
+					break;
+				case 2:
+					rocket2.buyUpgrade2();
+					break;
+				case 3:
+					rocket2.buyUpgrade3();
+					break;
+				case 4:
+					rocket2.buyUpgrade4();
+					break;				
+				default:
+					console.log('parameter "upgrade" is missing');
+			}
+			break;
+		case 'mercury':
+			switch(upgrade) {
+				case 1:
+					rocket2.buyUpgrade1();
+					break;
+				case 2:
+					rocket2.buyUpgrade2();
+					break;
+				case 3:
+					rocket2.buyUpgrade3();
+					break;
+				case 4:
+					rocket2.buyUpgrade4();
+					break;				
+				default:
+					console.log('parameter "upgrade" is missing');
+			}
+			break;
+		case 'gemini':
+			switch(upgrade) {
+				case 1:
+					rocket2.buyUpgrade1();
+					break;
+				case 2:
+					rocket2.buyUpgrade2();
+					break;
+				case 3:
+					rocket2.buyUpgrade3();
+					break;
+				case 4:
+					rocket2.buyUpgrade4();
+					break;				
+				default:
+					console.log('parameter "upgrade" is missing');
+			}
+			break;
+		case 'apollo':
+			switch(upgrade) {
+				case 1:
+					rocket2.buyUpgrade1();
+					break;
+				case 2:
+					rocket2.buyUpgrade2();
+					break;
+				case 3:
+					rocket2.buyUpgrade3();
+					break;
+				case 4:
+					rocket2.buyUpgrade4();
+					break;				
+				default:
+					console.log('parameter "upgrade" is missing');
+			}
+			break;		
+		default:
+			console.log('missing "rocket" parameter');
+	}		
 }
 
-function upgrade2() {
-	rocket1.buyUpgrade2();	
+function buyRocketTech(rocket, upgrade) {
+	switch(rocket) {
+		case 'basicRocket':
+			switch(upgrade) {
+				case 1:
+					rocket1.buyTech1();
+					break;
+				case 2:
+					rocket1.buyTech2();
+					break;
+				case 3:
+					rocket1.buyTech3();
+					break;
+				case 4:
+					rocket1.buyTech4();
+					break;
+				case 5:
+					rocket1.buyTech5();
+					break;
+				case 6:
+					rocket1.buyTech6();
+					break;
+				case 7:
+					console.log('Basic Rocket does not have 7 Techs');
+					break;
+				case 8:
+					console.log('Basic Rocket does not have 8 techs');
+					break;
+				default:
+					console.log('parameter "upgrade" is missing');
+			}
+			break;
+		case 'explorer':
+			switch(upgrade) {
+				case 1:
+					rocket2.buyTech1();
+					break;
+				case 2:
+					rocket2.buyTech2();
+					break;
+				case 3:
+					rocket2.buyTech3();
+					break;
+				case 4:
+					rocket2.buyTech4();
+					break;
+				case 5:
+					rocket2.buyTech5();
+					break;
+				case 6:
+					rocket2.buyTech6();
+					break;
+				case 7:
+					rocket2.buyTech7();
+					break;
+				case 8:
+					rocket2.buyTech8();
+					break;
+				default:
+					console.log('parameter "upgrade" is missing');
+			}
+			break;
+		case 'mercury':
+			switch(upgrade) {
+				case 1:
+					rocket3.buyTech1();
+					break;
+				case 2:
+					rocket3.buyTech2();
+					break;
+				case 3:
+					rocket3.buyTech3();
+					break;
+				case 4:
+					rocket3.buyTech4();
+					break;
+				case 5:
+					rocket3.buyTech5();
+					break;
+				case 6:
+					rocket3.buyTech6();
+					break;
+				case 7:
+					rocket3.buyTech7();
+					break;
+				case 8:
+					rocket3.buyTech8();
+					break;
+				default:
+					console.log('parameter "upgrade" is missing');
+			}
+			break;
+		case 'gemini':
+			switch(upgrade) {
+				case 1:
+					rocket4.buyTech1();
+					break;
+				case 2:
+					rocket4.buyTech2();
+					break;
+				case 3:
+					rocket4.buyTech3();
+					break;
+				case 4:
+					rocket4.buyTech4();
+					break;
+				case 5:
+					rocket4.buyTech5();
+					break;
+				case 6:
+					rocket4.buyTech6();
+					break;
+				case 7:
+					rocket4.buyTech7();
+					break;
+				case 8:
+					rocket4.buyTech8();
+					break;
+				default:
+					console.log('parameter "upgrade" is missing');
+			}
+			break;
+		case 'apollo':
+			switch(upgrade) {
+				case 1:
+					rocket5.buyTech1();
+					break;
+				case 2:
+					rocket5.buyTech2();
+					break;
+				case 3:
+					rocket5.buyTech3();
+					break;
+				case 4:
+					rocket5.buyTech4();
+					break;
+				case 5:
+					rocket5.buyTech5();
+					break;
+				case 6:
+					rocket5.buyTech6();
+					break;
+				case 7:
+					rocket5.buyTech7();
+					break;
+				case 8:
+					rocket5.buyTech8();
+					break;
+				default:
+					console.log('parameter "upgrade" is missing');
+			}
+			break;
+	}
 }
 
-function upgrade3() {
-	rocket1.buyUpgrade3();	
-}
-
-function explorerSwitchAuto() {
-	rocket2.switchAuto(!rocket2.properties.auto);
-}
-
-function explorerLaunch() {
-	rocket2.launch();
-}
-
-function explorerBuyFuel() {
-	rocket2.buyFuel();
-}
-
-function explorerUpgrade1() {
-	rocket2.buyUpgrade1();
-}
-
-function explorerUpgrade2() {
-	rocket2.buyUpgrade2();
-}
-
-function explorerUpgrade3() {
-	rocket2.buyUpgrade3();
-}
-
-function explorerUpgrade4() {
-	rocket2.buyUpgrade4();
-}
-
-function mercuryLaunch() {
-	rocket3.launch()
-}
-
-function mercuryBuyFuel() {
-	rocket3.buyFuel();
-}
-
-function mercuryUpgrade1() {
-	rocket3.buyUpgrade1();	
-}
-
-function mercuryUpgrade2() {
-	rocket3.buyUpgrade2();
-}
-
-function mercuryUpgrade3() {
-	rocket3.buyUpgrade3();
-}
-
-function mercuryUpgrade4() {
-	rocket3.buyUpgrade4();
+function rocketTechReset(rocket) {
+	switch(rocket) {
+		case 'basicRocket':
+			rocket1.resetTech();
+			break;
+		case 'explorer':
+			rocket2.resetTech();
+			break;
+		case 'mercury':
+			rocket3.resetTech();
+			break;
+		case 'gemini':
+			break;
+		case 'apollo':
+			break;
+		default:
+			console.log('parameter "rocket" is missing');
+	}
+	
 }
 
 function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
-function bugFix() {
-	game.basicRocket.fuel.cost = Math.round(game.basicRocket.fuel.cost * 100) / 100;
-	game.money = Math.round(game.money * 100) / 100;
-	game.basicRocket.fuel.amount = Math.round(game.basicRocket.fuel.amount);
 }
 
 function p1Gain() {
@@ -107,13 +359,8 @@ function prestige1() {
 		rocket2.prestige();
 		rocket3.prestige();
 		
-		// game.rock3.rockLaunched = 0;
 		// game.rock4.rockLaunched = 0;
-		// game.rock5.rockLaunched = 0;
-		// game.rock3.fuel.cost = 1e12;
-		// game.rock3.fuel.amount = 0;
-		// game.rock3.fuel.scaleDown = 1;
-		// game.rock3.fuel.max = 150;
+		// game.rock5.rockLaunched = 0;		
 		// game.rock4.fuel.cost = 1e21;
 		// game.rock4.fuel.amount = 0;
 		// game.rock4.fuel.scaleDown = 1;
@@ -121,11 +368,7 @@ function prestige1() {
 		// game.rock5.fuel.cost = 1e28;
 		// game.rock5.fuel.amount = 0;
 		// game.rock5.fuel.scaleDown = 1;
-		// game.rock5.fuel.max = 150;
-		// game.rock3.up1.buys = 0;
-		// game.rock3.up2.buys = 0;
-		// game.rock3.up3.buys = 0;
-		// game.rock3.up4.buys = 0;
+		// game.rock5.fuel.max = 150;		
 		// game.rock4.up1.buys = 0;
 		// game.rock4.up2.buys = 0;
 		// game.rock4.up3.buys = 0;
@@ -133,11 +376,7 @@ function prestige1() {
 		// game.rock5.up1.buys = 0;
 		// game.rock5.up2.buys = 0;
 		// game.rock5.up3.buys = 0;
-		// game.rock5.up4.buys = 0;
-		// game.rock3.up1.cost = 2.5e17;
-		// game.rock3.up2.cost = 4e17;
-		// game.rock3.up3.cost = 6e17;
-		// game.rock3.up4.cost = 4e17;
+		// game.rock5.up4.buys = 0;		
 		// game.rock4.up1.cost = 2.5e23;
 		// game.rock4.up2.cost = 4e23;
 		// game.rock4.up3.cost = 6e23;
@@ -146,21 +385,8 @@ function prestige1() {
 		// game.rock5.up2.cost = 4e30;
 		// game.rock5.up3.cost = 6e30;
 		// game.rock5.up4.cost = 4e30;
-		
-		// game.rock3.moneyPerFuel = (5e16 * (game.rock3.techs.mpf + 1)) * Math.log10(game.creat);
-		
 	}
 }
-// window.setInterval(function () {
-// 	if (game.auto.fuel === true) {
-// 		buyFuel();
-// 	}
-// 	if (game.rock2.auto.fuel === true) {
-// 		expBuyFuel();
-// 	}
-// 	bugFix();
-// 	p1Gain();
-// }, 100);
 
 function save() {
 	localStorage.sri = btoa(JSON.stringify(game));
@@ -341,6 +567,7 @@ function pUpgrade11() {
 function pUpgrade12() {
 	if (game.creativity.total >= game.prestige.upgrades[11].cost && !game.prestige.upgrades[11].bought) {
 		game.creativity.total -= game.prestige.upgrades[11].cost;
+		game.prestige.upgrades[11].bought = true;
 		rocket3.properties.unlocked = true;		
 	}
 }
@@ -348,7 +575,7 @@ function pUpgrade12() {
 function pUpgrade13() {
 	if (game.creat > 100000000 && game.rock3.techs.techStart === false) {
 		game.creat -= 100000000;
-		game.rock3.techs.techStart = true;
+		rocket3.properties.techs.techStart = true;
 
 	}
 }
@@ -410,172 +637,6 @@ function buyPrestige36() {
 	}
 }
 
-setInterval(function () {
-	
-	if (game.rock3.techs.techStart === true) {
-		if (game.rock3.up1.buys >= 5 && game.rock3.up2.buys >= 5 && game.rock3.up3.buys >= 5 && game.rock3.techs.maxTP === 0) {
-			game.rock3.techs.maxTP = 1;
-			game.rock3.techs.currentTP = 1;
-		}
-		if (game.rock3.up1.buys >= 10 && game.rock3.up2.buys >= 10 && game.rock3.up3.buys >= 10 && game.rock3.techs.maxTP === 1) {
-			game.rock3.techs.maxTP = 2;
-			game.rock3.techs.currentTP += 1;
-		}
-		if (game.rock3.up1.buys >= 15 && game.rock3.up2.buys >= 15 && game.rock3.up3.buys >= 15 && game.rock3.techs.maxTP === 2) {
-			game.rock3.techs.maxTP = 3;
-			game.rock3.techs.currentTP += 1;
-		}
-		if (game.rock3.up1.buys >= 20 && game.rock3.up2.buys >= 20 && game.rock3.up3.buys >= 20 && game.rock3.techs.maxTP === 3) {
-			game.rock3.techs.maxTP = 4;
-			game.rock3.techs.currentTP += 1;
-		}
-		if (game.rock3.up1.buys >= 25 && game.rock3.up2.buys >= 25 && game.rock3.up3.buys >= 25 && game.rock3.techs.maxTP === 4) {
-			game.rock3.techs.maxTP = 5;
-			game.rock3.techs.currentTP += 1;
-		}
-		if (game.rock3.up1.buys >= 30 && game.rock3.up2.buys >= 30 && game.rock3.up3.buys >= 30 && game.rock3.techs.maxTP === 5) {
-			game.rock3.techs.maxTP = 6;
-			game.rock3.techs.currentTP += 1;
-		}
-		if (game.rock3.up1.buys >= 35 && game.rock3.up2.buys >= 35 && game.rock3.up3.buys >= 35 && game.rock3.techs.maxTP === 6) {
-			game.rock3.techs.maxTP = 7;
-			game.rock3.techs.currentTP += 1;
-		}
-		if (game.rock3.up1.buys >= 40 && game.rock3.up2.buys >= 40 && game.rock3.up3.buys >= 40 && game.rock3.techs.maxTP === 7) {
-			game.rock3.techs.maxTP = 8;
-			game.rock3.techs.currentTP += 1;
-		}
-		if (game.rock3.up1.buys >= 45 && game.rock3.up2.buys >= 45 && game.rock3.up3.buys >= 45 && game.rock3.techs.maxTP === 8) {
-			game.rock3.techs.maxTP = 9;
-			game.rock3.techs.currentTP += 1;
-		}
-		if (game.rock3.up1.buys >= 50 && game.rock3.up2.buys >= 50 && game.rock3.up3.buys >= 50 && game.rock3.techs.maxTP === 9) {
-			game.rock3.techs.maxTP = 10;
-			game.rock3.techs.currentTP += 1;
-		}
-	}
-}, 10);
-
-function tech11() {
-	rocket1.buyTech1();
-}
-
-function tech12() {
-	rocket1.buyTech2();
-}
-
-function tech13() {
-	rocket1.buyTech3();
-}
-
-function tech14() {
-	rocket1.buyTech4();
-}
-
-function tech15() {
-	rocket1.buyTech5();
-}
-
-function tech16() {
-	rocket1.buyTech6();
-}
-
-function tech21() {
-	rocket2.buyTech1();
-}
-
-function tech22() {
-	rocket2.buyTech2();
-}
-
-function tech23() {
-	rocket2.buyTech3();
-}
-
-function tech24() {
-	rocket2.buyTech4();
-}
-
-function tech25() {
-	rocket2.buyTech5();
-}
-
-function tech26() {
-	rocket2.buyTech6();
-}
-
-function tech27() {
-	rocket2.buyTech7();
-}
-
-function tech28() {
-	rocket2.buyTech8();
-}
-
-function tech31() {
-	if (game.rock3.techs.cs1 < 3 && game.rock3.techs.currentTP > 0) {
-		game.rock3.techs.currentTP -= 1;
-		game.rock3.techs.cs1 += 1;
-	}
-}
-
-function tech32() {
-	if (game.rock3.techs.cs2 < 3 && game.rock3.techs.currentTP > 0) {
-		game.rock3.techs.currentTP -= 1;
-		game.rock3.techs.cs2 += 1;
-	}
-}
-
-function tech33() {
-	if (game.rock3.techs.cs3 < 3 && game.rock3.techs.currentTP > 0) {
-		game.rock3.techs.currentTP -= 1;
-		game.rock3.techs.cs3 += 1;
-	}
-}
-
-function tech34() {
-	if (game.rock3.techs.cs4 < 3 && game.rock3.techs.currentTP > 0) {
-		game.rock3.techs.currentTP -= 1;
-		game.rock3.techs.cs4 += 1;
-	}
-}
-
-function tech35() {
-	if (game.rock3.techs.ef3 < 3 && game.rock3.techs.currentTP > 0) {
-		game.rock3.techs.currentTP -= 1;
-		game.rock3.techs.ef3 += 1;
-	}
-}
-
-function tech36() {
-	if (game.rock3.techs.ef4 < 3 && game.rock3.techs.currentTP > 0) {
-		game.rock3.techs.currentTP -= 1;
-		game.rock3.techs.ef4 += 1;
-	}
-}
-
-function tech37() {
-	if (game.rock3.techs.mpf < 3 && game.rock3.techs.currentTP > 0) {
-		game.rock3.techs.currentTP -= 1;
-		game.rock3.techs.mpf += 1;
-	}
-}
-
-function tech38() {
-	if (game.rock3.techs.cmx < 3 && game.rock3.techs.currentTP > 0) {
-		game.rock3.techs.currentTP -= 1;
-		game.rock3.techs.cmx += 1;
-	}
-}
-
-function techRespec() {
-	rocket1.resetTech();
-}
-
-function techRespec2() {
-	game.rock2.techs.respec = true;
-}
-
 function ruinTheFun() {
 	if (game.funRuined === false) {
 		rocket1.properties.up1.buys = 25;
@@ -592,8 +653,6 @@ function getRandomInt(max) {
 }
 
 function putSomeoneOnYourFrickingRocket() {
-
-
 
 }
 
@@ -944,49 +1003,54 @@ window.setInterval(function () {
 	document.getElementById("lore18").innerHTML = lore[17];
 	document.getElementById("lore19").innerHTML = lore[18];
 	if (game.prestige.upgrades[0].bought) {
-		document.getElementById('pUpgrade1').classList.add('pure-button-disabled');
+		document.getElementById('pUpgrade1').classList.add('disabled');
 	} else {
-		document.getElementById('pUpgrade1').classList.remove('pure-button-disabled');
+		document.getElementById('pUpgrade1').classList.remove('disabled');
 	}
 	if (game.prestige.upgrades[3].bought) {
-		document.getElementById('pUpgrade4').classList.add('pure-button-disabled');
+		document.getElementById('pUpgrade4').classList.add('disabled');
 	} else {
-		document.getElementById('pUpgrade4').classList.remove('pure-button-disabled');
+		document.getElementById('pUpgrade4').classList.remove('disabled');
 	}
 	if (game.prestige.upgrades[4].bought) {
-		document.getElementById('pUpgrade5').classList.add('pure-button-disabled');
+		document.getElementById('pUpgrade5').classList.add('disabled');
 	} else {
-		document.getElementById('pUpgrade5').classList.remove('pure-button-disabled');
+		document.getElementById('pUpgrade5').classList.remove('disabled');
 	}
 	if (game.prestige.upgrades[5].bought) {
-		document.getElementById('pUpgrade6').classList.add('pure-button-disabled');
+		document.getElementById('pUpgrade6').classList.add('disabled');
 	} else {
-		document.getElementById('pUpgrade6').classList.remove('pure-button-disabled');
+		document.getElementById('pUpgrade6').classList.remove('disabled');
 	}
 	if (game.prestige.upgrades[6].bought) {
-		document.getElementById('pUpgrade7').classList.add('pure-button-disabled');
+		document.getElementById('pUpgrade7').classList.add('disabled');
 	} else {
-		document.getElementById('pUpgrade7').classList.remove('pure-button-disabled');
+		document.getElementById('pUpgrade7').classList.remove('disabled');
 	}
 	if (game.prestige.upgrades[7].bought) {
-		document.getElementById('pUpgrade8').classList.add('pure-button-disabled');
+		document.getElementById('pUpgrade8').classList.add('disabled');
 	} else {
-		document.getElementById('pUpgrade8').classList.remove('pure-button-disabled');
+		document.getElementById('pUpgrade8').classList.remove('disabled');
 	}
 	if (game.prestige.upgrades[8].bought) {
-		document.getElementById('pUpgrade9').classList.add('pure-button-disabled');
+		document.getElementById('pUpgrade9').classList.add('disabled');
 	} else {
-		document.getElementById('pUpgrade9').classList.remove('pure-button-disabled');
+		document.getElementById('pUpgrade9').classList.remove('disabled');
 	}
 	if (game.prestige.upgrades[9].bought) {
-		document.getElementById('pUpgrade10').classList.add('pure-button-disabled');
+		document.getElementById('pUpgrade10').classList.add('disabled');
 	} else {
-		document.getElementById('pUpgrade10').classList.remove('pure-button-disabled');
+		document.getElementById('pUpgrade10').classList.remove('disabled');
 	}
 	if (game.prestige.upgrades[10].bought) {
-		document.getElementById('pUpgrade11').classList.add('pure-button-disabled');
+		document.getElementById('pUpgrade11').classList.add('disabled');
 	} else {
-		document.getElementById('pUpgrade11').classList.remove('pure-button-disabled');
+		document.getElementById('pUpgrade11').classList.remove('disabled');
+	}
+	if (game.prestige.upgrades[11].bought) {
+		document.getElementById('pUpgrade12').classList.add('disabled');
+	} else {
+		document.getElementById('pUpgrade12').classList.remove('disabled');
 	}
 	
 	document.getElementById("pUpgrade2Cost").innerHTML = format(game.prestige.upgrades[1].cost);
